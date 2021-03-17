@@ -13,6 +13,14 @@ end
     @test get_count(latch) == 0
 end
 
+@testset "count down from 1 two times" begin
+    latch = Latch(1)
+    count_down(latch)
+    count_down(latch)
+    await(latch)
+    @test get_count(latch) == -1
+end
+
 @testset "wait for another thread to count down from 1" begin
     latch = Latch(1)
 
