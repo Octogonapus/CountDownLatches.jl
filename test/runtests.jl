@@ -1,20 +1,20 @@
-using CountDownLatch
+using CountDownLatches
 using Test
 using ThreadPools
 
 @testset "create a latch with a negative count" begin
-    @test_throws ArgumentError Latch(-1)
+    @test_throws ArgumentError CountDownLatch(-1)
 end
 
 @testset "count down from 1" begin
-    latch = Latch(1)
+    latch = CountDownLatch(1)
     count_down(latch)
     await(latch)
     @test get_count(latch) == 0
 end
 
 @testset "count down from 1 two times" begin
-    latch = Latch(1)
+    latch = CountDownLatch(1)
     count_down(latch)
     count_down(latch)
     await(latch)
@@ -22,7 +22,7 @@ end
 end
 
 @testset "wait for another thread to count down from 1" begin
-    latch = Latch(1)
+    latch = CountDownLatch(1)
 
     t = Threads.@spawn begin
         count_down(latch)
@@ -35,9 +35,9 @@ end
 end
 
 @testset "mutual count down" begin
-    latch1 = Latch(1)
-    latch2 = Latch(1)
-    latch3 = Latch(1)
+    latch1 = CountDownLatch(1)
+    latch2 = CountDownLatch(1)
+    latch3 = CountDownLatch(1)
 
     t = Threads.@spawn begin
         count_down(latch2)
@@ -56,7 +56,7 @@ end
 end
 
 @testset "wait for another thread to count down from 2" begin
-    latch = Latch(2)
+    latch = CountDownLatch(2)
 
     t = Threads.@spawn begin
         count_down(latch)
@@ -70,7 +70,7 @@ end
 end
 
 @testset "wait for this thread to count down from 2 using ThreadPools" begin
-    latch = Latch(2)
+    latch = CountDownLatch(2)
 
     this_thread_id = Threads.threadid()
     @tspawnat this_thread_id begin

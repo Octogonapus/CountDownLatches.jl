@@ -1,17 +1,17 @@
-module CountDownLatch
+module CountDownLatches
 
-export Latch, await, count_down, get_count
+export CountDownLatch, await, count_down, get_count
 
 """
-    Latch(count::I) where {I<:Integer}
+    CountDownLatch(count::I) where {I<:Integer}
 
-A `Latch` that starts at some initial non-negative `count`. This latch can be counted down and waited on.
+A `CountDownLatch` that starts at some initial non-negative `count`. This latch can be counted down and waited on.
 """
-mutable struct Latch
+mutable struct CountDownLatch
     count::Threads.Atomic{Int64}
     condition::Threads.Condition
 
-    function Latch(count::I) where {I<:Integer}
+    function CountDownLatch(count::I) where {I<:Integer}
         if count < 0
             throw(ArgumentError("Count ($count) must not be negative."))
         end
@@ -21,11 +21,11 @@ mutable struct Latch
 end
 
 """
-    await(latch::Latch)
+    await(latch::CountDownLatch)
 
 Waits until the `latch` has counted down to `<= 0`.
 """
-function await(latch::Latch)
+function await(latch::CountDownLatch)
     # Check the count early to possibly avoid a call to lock
     if get_count(latch) <= 0
         return
@@ -39,12 +39,12 @@ function await(latch::Latch)
 end
 
 """
-    count_down(latch::Latch)
+    count_down(latch::CountDownLatch)
 
 Counts down the `latch` once. This may cause the count to become negative. Any tasks that were blocked in `await` will
 be woken if the count becomes `<= 0`.
 """
-function count_down(latch::Latch)
+function count_down(latch::CountDownLatch)
     # I think doing something like:
     #
     # 1: count = get_count(latch)
@@ -67,11 +67,11 @@ function count_down(latch::Latch)
 end
 
 """
-    get_count(latch::Latch)
+    get_count(latch::CountDownLatch)
 
 Returns the current count of the `latch`. This count may be negative.
 """
-function get_count(latch::Latch)
+function get_count(latch::CountDownLatch)
     latch.count[]
 end
 
