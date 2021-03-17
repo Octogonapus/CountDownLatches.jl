@@ -1,3 +1,4 @@
 [deps]
 CountDownLatch = "621fb831-fdad-4fff-93ac-1af7b7ed19e3"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+nghttp2_jll = "8e850ede-7688-5339-a07c-302acd2aaf8d"
