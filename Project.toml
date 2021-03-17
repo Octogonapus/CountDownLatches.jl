@@ -1,0 +1,7 @@
+name = "CountDownLatch"
+uuid = "621fb831-fdad-4fff-93ac-1af7b7ed19e3"
+authors = ["Octogonapus <firey45@gmail.com> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1.5"
