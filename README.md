@@ -19,8 +19,10 @@ This is clearly a contrived example, but imagine that there is much more code be
 latch = Latch(1)
 
 Threads.@spawn begin
+    # Decrease the latch's count by one
     count_down(latch)
 end
 
+# Wait until the latch's count become zero
 await(latch)
 ```
