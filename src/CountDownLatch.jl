@@ -3,17 +3,14 @@ module CountDownLatch
 export Latch, await, count_down, get_count
 
 """
-A `Latch` that starts at some initial value (`count`) and can be counted down and waited on.
+    Latch(count::I) where {I<:Integer}
+
+A `Latch` that starts at some initial non-negative `count`. This latch can be counted down and waited on.
 """
 mutable struct Latch
     count::Threads.Atomic{Int64}
     condition::Threads.Condition
 
-    """
-        Latch(count::I) where {I<:Integer}
-
-    Creates a `Latch` with an initial non-negative `count`.
-    """
     function Latch(count::I) where {I<:Integer}
         if count < 0
             throw(ArgumentError("Count ($count) must not be negative."))
