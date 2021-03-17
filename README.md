@@ -1,13 +1,13 @@
 # CountDownLatches
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://Octogonapus.github.io/CountDownLatch.jl/stable)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://Octogonapus.github.io/CountDownLatch.jl/dev)
-[![Build Status](https://github.com/Octogonapus/CountDownLatch.jl/workflows/CI/badge.svg)](https://github.com/Octogonapus/CountDownLatch.jl/actions)
-[![Coverage](https://codecov.io/gh/Octogonapus/CountDownLatch.jl/branch/main/graph/badge.svg?token=MJVL5EVXTP)](https://codecov.io/gh/Octogonapus/CountDownLatch.jl)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://Octogonapus.github.io/CountDownLatches.jl/stable)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://Octogonapus.github.io/CountDownLatches.jl/dev)
+[![Build Status](https://github.com/Octogonapus/CountDownLatches.jl/workflows/CI/badge.svg)](https://github.com/Octogonapus/CountDownLatches.jl/actions)
+[![Coverage](https://codecov.io/gh/Octogonapus/CountDownLatches.jl/branch/main/graph/badge.svg?token=MJVL5EVXTP)](https://codecov.io/gh/Octogonapus/CountDownLatches.jl)
 [![Code Style: Blue](https://img.shields.io/badge/code%20style-blue-4495d1.svg)](https://github.com/invenia/BlueStyle)
 
-This package implements a multithreading primitive called a CountDownLatch that holds an internal count.
-This count can be decremented by multiple threads.
+This package implements a multithreading primitive called a `CountDownLatch` that holds an internal count.
+The latch's count can be decremented by multiple threads.
 Threads may also wait on the latch's count to become zero.
 
 ## Example

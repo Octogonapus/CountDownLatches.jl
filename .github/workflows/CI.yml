@@ -55,9 +55,9 @@ jobs:
       - run: |
           julia --project=docs -e '
             using Documenter: DocMeta, doctest
-            using CountDownLatch
-            DocMeta.setdocmeta!(CountDownLatch, :DocTestSetup, :(using CountDownLatch); recursive=true)
-            doctest(CountDownLatch)'
+            using CountDownLatches
+            DocMeta.setdocmeta!(CountDownLatches, :DocTestSetup, :(using CountDownLatches); recursive=true)
+            doctest(CountDownLatches)'
       - run: julia --project=docs docs/make.jl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

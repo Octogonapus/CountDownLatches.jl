@@ -1,12 +1,12 @@
 ```@meta
-CurrentModule = CountDownLatch
+CurrentModule = CountDownLatches
 ```
 
-# CountDownLatch
+# CountDownLatches
 
 ```@index
 ```
 
 ```@autodocs
-Modules = [CountDownLatch]
+Modules = [CountDownLatches]
 ```

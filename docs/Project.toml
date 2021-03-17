@@ -1,5 +1,5 @@
 [deps]
-CountDownLatch = "621fb831-fdad-4fff-93ac-1af7b7ed19e3"
+CountDownLatches = "621fb831-fdad-4fff-93ac-1af7b7ed19e3"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 Downloads = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
 LibCURL_jll = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
