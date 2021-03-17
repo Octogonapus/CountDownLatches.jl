@@ -26,15 +26,13 @@ end
 Waits until the `latch` has counted down to `<= 0`.
 """
 function await(latch::Latch)
+    # Check the count early to possibly avoid a call to lock
     if get_count(latch) <= 0
         return
     end
 
     lock(latch.condition) do
-        while true
-            if get_count(latch) <= 0
-                return
-            end
+        while get_count(latch) > 0
             wait(latch.condition)
         end
     end
