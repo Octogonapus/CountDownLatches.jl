@@ -1,6 +1,7 @@
 [deps]
 CountDownLatch = "621fb831-fdad-4fff-93ac-1af7b7ed19e3"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+LibSSH2_jll = "29816b5a-b9ab-546f-933c-edad1886dfa8"
 MbedTLS_jll = "c8ffd9c3-330d-5841-b78e-0817d7145fa1"
 Tar = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
 Zlib_jll = "83775a58-1f1d-513f-b197-d71354ab007a"
