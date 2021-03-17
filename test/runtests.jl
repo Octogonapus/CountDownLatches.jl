@@ -27,9 +27,9 @@ end
     t = Threads.@spawn begin
         count_down(latch)
     end
-    
+
     await(latch)
-    
+
     @test get_count(latch) == 0
     @test istaskdone(t)
 end
@@ -57,14 +57,14 @@ end
 
 @testset "wait for another thread to count down from 2" begin
     latch = Latch(2)
-    
+
     t = Threads.@spawn begin
         count_down(latch)
         count_down(latch)
     end
-    
+
     await(latch)
-    
+
     @test get_count(latch) == 0
     @test istaskdone(t)
 end
@@ -80,6 +80,6 @@ end
     end
     count_down(latch)
     await(latch)
-    
+
     @test get_count(latch) == 0
 end

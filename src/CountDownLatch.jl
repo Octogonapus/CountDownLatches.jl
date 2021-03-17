@@ -10,6 +10,8 @@ mutable struct Latch
     condition::Threads.Condition
 
     """
+        Latch(count::I) where {I<:Integer}
+
     Creates a `Latch` with an initial non-negative `count`.
     """
     function Latch(count::I) where {I<:Integer}
@@ -22,6 +24,8 @@ mutable struct Latch
 end
 
 """
+    await(latch::Latch)
+
 Waits until the `latch` has counted down to `<= 0`.
 """
 function await(latch::Latch)
@@ -40,6 +44,8 @@ function await(latch::Latch)
 end
 
 """
+    count_down(latch::Latch)
+
 Counts down the `latch` once. This may cause the count to become negative. Any tasks that were blocked in `await` will
 be woken if the count becomes `<= 0`.
 """
@@ -66,6 +72,8 @@ function count_down(latch::Latch)
 end
 
 """
+    get_count(latch::Latch)
+
 Returns the current count of the `latch`. This count may be negative.
 """
 function get_count(latch::Latch)
