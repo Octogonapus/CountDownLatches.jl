@@ -8,7 +8,7 @@ export CountDownLatch, await, count_down, get_count
 A `CountDownLatch` that starts at some initial non-negative `count`. This latch can be counted down and waited on.
 """
 mutable struct CountDownLatch{I<:Integer}
-    count::Threads.Atomic{Int64}
+    count::Threads.Atomic{I}
     condition::Threads.Condition
 
     function CountDownLatch(count::I) where {I<:Integer}
