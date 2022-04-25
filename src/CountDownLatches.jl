@@ -16,7 +16,7 @@ mutable struct CountDownLatch{I<:Integer}
             throw(ArgumentError("Count ($count) must not be negative."))
         end
 
-        new{I}(Threads.Atomic{I}(count), Threads.Condition(ReentrantLock()))
+        new{I}(Threads.Atomic{I}(I(count)), Threads.Condition(ReentrantLock()))
     end
 end
 
